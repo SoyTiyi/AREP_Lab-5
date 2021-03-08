@@ -1,12 +1,12 @@
 var app = (function() {
     const messages = (error, data) => {
         if (error != null) {
-            console.log(`Error: ${error}`);
+            console.log(`Error: ${JSON.stringify(error)}`);
             alert("Error al enviar el mensaje");
             return;
         }
         /* $("#avg").text(data.media); */
-        $("#response").text(data.message);
+        $("#response").text(data);
     }
 
     const send = () => {
@@ -16,13 +16,13 @@ var app = (function() {
 
     const postMethod = (message,messages) => {
         var promise = $.post({
-            url: "/load",
+            url: "/add",
             data: JSON.stringify(message),
             contentType: "application/json"
         });
         promise.then((data) => {
             console.log(data);
-            messages(null, JSON.parse(data));
+            messages(null, data);
         },(error) => {
             messages(error, null);
         });

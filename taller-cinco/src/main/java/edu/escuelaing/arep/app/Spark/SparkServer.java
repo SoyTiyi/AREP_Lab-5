@@ -14,7 +14,8 @@ public class SparkServer {
 			String message = req.body();
 			String newMessage = message.replace("\"", "");
 			service.insert(newMessage);
-			return "{\"message\": \"ACCEPT\" }";
+			String messages = service.getData().replace("\n", "");
+			return " { \"message\": \""+ messages+ "\"}";
 		});
 		get("/messages", (req, resp) -> {
 			return service.getData();

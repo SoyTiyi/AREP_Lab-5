@@ -12,12 +12,13 @@ public class SparkServer {
         staticFileLocation("/public");
         get("/messages", (request, response) -> {
             loadBalancer.loadbalancer();
-            return loadBalancer.get("/messages");
+            String messages = loadBalancer.get("/messages").replace("\n", "");
+            return " { \"message\": \"" + messages+ "\"}";
         });
         post("/add", (req , resp) -> {
             loadBalancer.loadbalancer();
             loadBalancer.post(req.body(), "/send");
-            return "{\"message\": \"ACCEPT\" }";
+            return loadBalancer.get("/messages");
         });
     }
 
