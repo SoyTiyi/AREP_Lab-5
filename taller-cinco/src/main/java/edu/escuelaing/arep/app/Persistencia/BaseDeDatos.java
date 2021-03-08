@@ -2,6 +2,8 @@ package edu.escuelaing.arep.app.Persistencia;
 
 import org.bson.Document;
 
+import java.util.Date;
+
 import com.mongodb.MongoClient;
 import com.mongodb.MongoClientURI;
 import com.mongodb.client.MongoCollection;
@@ -28,7 +30,8 @@ public class BaseDeDatos {
 	}
 
 	public void insert(String message){
-		Document value = new Document(key, message);
+		Date fecha = new Date();
+		Document value = new Document(key,message + " fecha: " + fecha.toString());
 		columnas.insertOne(value);
 	}
 
@@ -38,7 +41,7 @@ public class BaseDeDatos {
 		long total = columnas.countDocuments();
 		for(Document d : columnas.find()){
 			if(i-1 > total- 10) {
-				data += "Mensaje numero " + String.valueOf(i) + " " + d.get(key).toString()+"\n";
+				data += " Mensaje numero " + String.valueOf(i) + " " + d.get(key).toString()+"\n";
 			}
 			i++;
 		}
