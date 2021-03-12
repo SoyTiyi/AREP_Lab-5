@@ -54,9 +54,9 @@ $ docker-compose up -d
 
 ## Integración Continua
 
-[![CircleCI](https://circleci.com/gh/SoyTiyi/LoadBalancer.svg?style=svg)](https://circleci.com/gh/SoyTiyi/LoadBalancer)
+* [![CircleCI](https://circleci.com/gh/SoyTiyi/LoadBalancer.svg?style=svg)](https://circleci.com/gh/SoyTiyi/LoadBalancer)
 
-[![CircleCI](https://circleci.com/gh/SoyTiyi/Taller-Cinco.svg?style=svg)](https://circleci.com/gh/SoyTiyi/Taller-Cinco)
+* [![CircleCI](https://circleci.com/gh/SoyTiyi/Taller-Cinco.svg?style=svg)](https://circleci.com/gh/SoyTiyi/Taller-Cinco)
 
 ## Correr Pruebas
 
